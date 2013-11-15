@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+/**
+ * CLI tool for checking files
+ */
+
+$files =  [
+    __DIR__ . "/../vendor/autoload.php",
+    __DIR__ . "/../../vendor/autoload.php",
+    __DIR__ . "/../../../vendor/autoload.php",
+    __DIR__ . "/../../../../vendor/autoload.php",
+];
+
+foreach ($files as $file) {
+    if (file_exists($file)) {
+        require_once($file);
+        break;
+    }
+}
+
+
+use vektah\phuma\cli\CliApplication;
+
+$application = new CliApplication();
+$application->run();

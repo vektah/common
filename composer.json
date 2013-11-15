@@ -1,0 +1,32 @@
+{
+    "name": "vektah/common",
+    "type": "library",
+    "description": "Shared utility code that provides nice interfaces common tasks.",
+    "homepage": "https://github.com/Vektah/common",
+    "licence": "http://opensource.org/licenses/BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Adam Scarr",
+            "email": "adam@vektah.net",
+            "role": "Developer"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.4.0"
+    },
+
+    "require-dev": {
+        "phake/phake": "v2.0.0-alpha2",
+        "phpunit/phpunit": "*",
+        "squizlabs/php_codesniffer" : "*",
+        "vektah/psr2": "*",
+        "vektah/bugfree-dangerzone": "*"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "vektah\\common": "src/main/"
+        }
+    }
+}
