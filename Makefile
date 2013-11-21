@@ -35,4 +35,4 @@ test: lint depends
 	$(PHPUNIT_BIN)
 	echo
 
-#.SILENT:
+.SILENT:
