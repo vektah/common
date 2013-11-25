@@ -12,6 +12,7 @@ use ZMQSocket;
  */
 class ZmqManager
 {
+    /** @var ZMQContext */
     private static $context;
 
     /** @var callable[] */
@@ -72,7 +73,7 @@ class ZmqManager
         try {
             $sock->bind($url);
         } catch (\ZMQSocketException $e) {
-            throw new InvalidArgumentException("Unable to bind to $url");
+            throw new InvalidArgumentException("Unable to bind to $url: {$e->getMessage()}");
         }
 
         return $sock;
@@ -94,7 +95,7 @@ class ZmqManager
         try {
             $sock->connect($url);
         } catch (\ZMQSocketException $e) {
-            throw new InvalidArgumentException("Unable to connect to $url");
+            throw new InvalidArgumentException("Unable to connect to $url: {$e->getMessage()}");
         }
 
         return $sock;
