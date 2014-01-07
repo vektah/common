@@ -14,7 +14,7 @@ class Json
      */
     public static function encode($value)
     {
-        $json = json_encode($value, JSON_UNESCAPED_UNICODE);
+        $json = json_encode($value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         if ($err = json_last_error()) {
             throw new InvalidJsonException($err);
         }
@@ -30,7 +30,7 @@ class Json
      */
     public static function pretty($value)
     {
-        $json = json_encode($value, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        $json = json_encode($value, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         if ($err = json_last_error()) {
             throw new InvalidJsonException($err);
         }
