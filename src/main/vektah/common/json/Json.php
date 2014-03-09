@@ -46,7 +46,7 @@ class Json
      */
     public static function decode($json)
     {
-        $data = json_decode($json, true, 512, JSON_UNESCAPED_UNICODE);
+        $data = json_decode($json, true, 512);
         if ($err = json_last_error()) {
             throw new InvalidJsonException($err);
         }

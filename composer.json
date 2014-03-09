@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Shared utility code that provides nice interfaces common tasks.",
     "homepage": "https://github.com/Vektah/common",
-    "licence": "http://opensource.org/licenses/BSD-2-Clause",
+    "licence": "BSD-2-Clause",
     "authors": [
         {
             "name": "Adam Scarr",
@@ -17,7 +17,7 @@
     },
 
     "require-dev": {
-        "phake/phake": "v2.0.0-alpha2",
+        "phake/phake": "v2.0.0-alpha4",
         "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer" : "*",
         "vektah/psr2": "*",
