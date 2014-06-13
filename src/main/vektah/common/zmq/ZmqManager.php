@@ -12,8 +12,13 @@ use ZMQSocket;
  */
 class ZmqManager
 {
+    const CERR_INTERRUPTED = 4;
+
     /** @var ZMQContext */
     private static $context;
+
+    /** @var int */
+    private static $context_pid;
 
     /** @var callable[] */
     private static $socket_creation_routines = [];
@@ -23,8 +28,13 @@ class ZmqManager
      */
     public static function getContext()
     {
+        if (self::$context_pid && self::$context_pid != getmypid()) {
+            throw new \RuntimeException('Attempt to get another pids context.');
+        }
+
         if (!self::$context) {
             self::$context = new ZMQContext();
+            self::$context_pid = getmypid();
         }
 
         return self::$context;
@@ -114,6 +124,7 @@ class ZmqManager
     public static function reset()
     {
         self::$context = null;
+        self::$context_pid = null;
         self::$socket_creation_routines = [];
     }
 
