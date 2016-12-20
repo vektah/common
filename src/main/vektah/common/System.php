@@ -12,11 +12,10 @@ class System
 
             return count($matches[0]);
         } elseif ('WIN' == strtoupper(substr(PHP_OS, 0, 3))) {
-            return intval(system('wmic cpu get NumberOfCores'));
+            return intval(exec('wmic cpu get NumberOfCores'));
         } else {
-            $cpus = intval(system('sysctl -n hw.ncpu', $failure));
-
-            if ($failure) {
+            $cpus = intval(exec('sysctl -n hw.ncpu'));
+            if (!$cpus) {
                 $cpus = 2;
             }
 
